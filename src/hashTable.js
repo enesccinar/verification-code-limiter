@@ -1,8 +1,12 @@
 module.exports = class HashTable {
-    constructor() {
+    constructor(length = 0) {
         this.values = {};
-        this.length = 0;
         this.size = 0;
+
+        if (typeof length === 'number')
+            this.length = length;
+        else
+            this.length = 0
     }
 
     calculateHash(key) {
