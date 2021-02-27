@@ -1,6 +1,6 @@
 {
   "name": "verification-code-limiter",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -25,5 +25,8 @@
     "limiter",
     "phone number",
     "sms"
-  ]
+  ],
+  "dependencies": {
+    "node-cron": "^2.0.3"
+  }
 }
