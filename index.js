@@ -1,3 +1,7 @@
-exports.printMsg = function() {
-    console.log("verification-code-limiter worked")
+const HashTable = require('./src/hashTable')
+
+const ht = new HashTable()
+
+exports.check = function(phoneNumber) {
+    return ht.add(phoneNumber);
 }
