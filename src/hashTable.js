@@ -21,23 +21,15 @@ module.exports = class HashTable {
         // return key.toString().length % this.size;
     }
 
-    add(key, value) {
+    add(key) {
         const hash = this.calculateHash(key);
-        if (!this.values.hasOwnProperty(hash)) {
-            this.values[hash] = {};
+        if (!this.values[hash]) {
+            this.values[hash] = 1
         }
-        if (!this.values[hash].hasOwnProperty(key)) {
-            this.length++;
+        else {
+            this.values[hash] += 1
         }
-        this.values[hash][key] = value;
-    }
 
-    search(key) {
-        const hash = this.calculateHash(key);
-        if (this.values.hasOwnProperty(hash) && this.values[hash].hasOwnProperty(key)) {
-            return this.values[hash][key];
-        } else {
-            return null;
-        }
+        return this.values[hash]
     }
 }
