@@ -10,7 +10,15 @@ module.exports = class HashTable {
     }
 
     calculateHash(key) {
-        return key.toString().length % this.size;
+        var hash = 0, i, chr;
+        if (key.length === 0) return hash;
+        for (i = 0; i < key.length; i++) {
+            chr = key.charCodeAt(i);
+            hash = ((hash << 5) - hash) + chr;
+            hash |= 0; // Convert to 32bit integer
+        }
+        return hash;
+        // return key.toString().length % this.size;
     }
 
     add(key, value) {
